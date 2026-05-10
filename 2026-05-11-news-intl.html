@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>뉴스 브리핑 2026.05.11 (Mon)</title>
+<style>
+:root {
+  --background: #0c0a09;
+  --foreground: #fafaf9;
+  --card: #1c1917;
+  --card-foreground: #fafaf9;
+  --card-hover: #292524;
+  --border: #27272a;
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --muted: #292524;
+  --muted-foreground: #a8a29e;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--font-sans);
+  background:var(--background);color:var(--foreground);
+  line-height:1.6;-webkit-font-smoothing:antialiased
+}
+.container{max-width:720px;margin:0 auto;padding:40px 20px}
+
+/* ── Card ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+.card-header{margin-bottom:16px}
+.card-header h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)}
+.card-body{color:var(--card-foreground);font-size:15px;line-height:1.7}
+
+/* ── Header ── */
+.header{text-align:center;padding:32px 0 40px}
+.header h1{font-size:28px;font-weight:700;letter-spacing:-0.02em}
+.header .date{margin-top:8px;color:var(--muted-foreground);font-size:14px}
+.header .tag{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:9999px;font-size:12px;font-weight:600;border:1px solid var(--border)}
+.tag-domestic{color:#60a5fa;border-color:#1e3a5f;background:rgba(96,165,250,0.08)}
+.tag-intl{color:#c084fc;border-color:#3b1f4e;background:rgba(192,132,252,0.08)}
+
+/* ── Divider ── */
+hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+
+/* ── Signal ── */
+.signal-text{font-size:15px;color:var(--muted-foreground);line-height:1.7}
+
+/* ── Compete (Alert/Destructive) ── */
+.alert-destructive{background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.25);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.alert-destructive h2{color:var(--destructive);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
+.alert-line{font-size:14px;color:var(--foreground);padding:8px 0;border-bottom:1px solid rgba(220,38,38,0.12)}
+.alert-line:last-child{border-bottom:none}
+
+/* ── Keyword blocks ── */
+.kw-section{margin-bottom:24px}
+.kw-section:last-child{margin-bottom:0}
+.kw-title{font-size:15px;font-weight:600;margin-bottom:8px;color:var(--foreground)}
+.kw-body{font-size:13px;color:var(--muted-foreground);padding-left:14px;border-left:2px solid var(--primary);line-height:1.6}
+.kw-body br{margin-bottom:4px}
+
+/* ── Insight items ── */
+.insight-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.insight-card h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#c084fc;margin-bottom:16px}
+.insight-row{display:flex;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--foreground);margin-bottom:6px}
+.insight-row:last-child{margin-bottom:0}
+.insight-row:hover{background:var(--card-hover)}
+.insight-row .icon{flex-shrink:0;font-size:16px}
+
+/* ── Action items ── */
+.action-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.action-card h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--success);margin-bottom:16px}
+.action-row{display:flex;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--foreground);margin-bottom:4px}
+.action-row:last-child{margin-bottom:0}
+.action-row:hover{background:var(--card-hover)}
+
+/* ── Articles ── */
+.section-articles{margin:0}
+.section-articles h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground);margin-bottom:20px}
+.kw-group{margin-bottom:28px}
+.kw-group:last-child{margin-bottom:0}
+.kw-group h3{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--foreground)}
+.kw-group h3 span{color:var(--muted-foreground);font-weight:400;font-size:13px}
+
+/* ── Article Card ── */
+.article-card{padding:16px;margin-bottom:8px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}
+.article-card:last-child{margin-bottom:0}
+.article-card:hover{border-color:#3f3f46}
+.article-card .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:12px;color:var(--muted-foreground);flex-wrap:wrap}
+.article-card .badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;line-height:1.4}
+.badge-ISSUE{color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2)}
+.badge-WATCH{color:#fbbf24;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2)}
+.badge-ARCHIVE{color:#6b7280;background:rgba(107,114,128,0.1);border:1px solid rgba(107,114,128,0.2)}
+.article-card .title{font-size:14px;font-weight:500;color:var(--foreground);text-decoration:none;display:block;margin-bottom:8px;transition:color 0.15s}
+.article-card .title:hover{color:var(--primary)}
+.article-card .bullets{padding-left:18px;font-size:13px;color:var(--muted-foreground);line-height:1.5}
+.article-card .bullets li{margin-bottom:2px}
+.article-card .bullets li::marker{color:var(--border)}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:32px 0;color:var(--muted-foreground);font-size:12px;border-top:1px solid var(--border);margin-top:8px}
+
+/* ── Transition ── */
+.card,.article-card,.insight-row,.action-row{transition:border-color 0.15s,background 0.15s}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>뉴스 브리핑</h1>
+    <div class="date">2026.05.11 (Mon)</div>
+    <span class="tag tag-intl">해외 디지털정부·AI</span>
+  </div>
+
+  
+<div class="card">
+  <div class="card-header"><h2>🌍 이번 주 글로벌 시그널</h2></div>
+  <div class="card-body signal-text">공공부문 AI 책임성 논의 본격화 — 영국·호주 중심으로 AI 오류 시 행정 책임 귀속 법제화 움직임. UNDP 디지털 전환 장벽 분석은 개도국 디지털정부 설계에 새로운 기준 제시. 노르웨이 안면인식 디지털 ID 도입으로 생체인증 기반 전자정부 사례 확대. 글로벌 공공 사이버보안 시장 폭발적 성장 중.</div>
+</div>
+<div class="card">
+  <div class="card-header"><h2>🔍 키워드별 해외 동향</h2></div>
+  <div class="card-body">
+<div class="kw-section">
+  <div class="kw-title">🌐 AI Government Policy</div>
+  <div class="kw-body">• 해외 동향: (영국, 5/7) 공공부문 AI 오류 시 누가 책임질 것인가 — CX Today가 AI 감독·법적 책임 구조 부재 문제 제기. (호주, 5/5) The Mandarin이 공공부문 AI 도입 정체 원인을 레거시 시스템·인력 부족·리스크 회피 문화로 분석.<br>• 국내 시사점: 행안부 AI정부실이 추진하는 공공 AI 도입 가이드라인에 책임 소재 명확화 조항 반영 필요. 호주 사례의 도입 장벽 분석은 국내 공공기관 AI 도입 로드맵 점검에 활용 가능.<br>• 도입 장벽: 전자정부법·개인정보보호법상 AI 결정에 대한 행정 책임 규정 미비. 공무원 대상 AI 리터러시 교육 체계 부재.</div>
+</div>
+<div class="kw-section">
+  <div class="kw-title">🔐 Public Sector Cybersecurity</div>
+  <div class="kw-body">• 해외 동향: (글로벌, 5/8) Infosecurity Magazine, 크라우드소싱 보안(버그 바운티 등)이 공공부문 사이버보안을 혁신하는 사례 소개. (글로벌, 5/6) Palo Alto Networks·CrowdStrike·Cisco 등 주요 업체 주도로 공공 사이버보안 시장 급성장.<br>• 국내 시사점: 행안부 사이버보안 업무에 크라우드소싱 취약점 발견 제도 도입 검토 가능. 공공부문 보안 예산 증액 추세에 맞춰 시장 동향 참고.<br>• 도입 장벽: 공공기관 대상 버그 바운티 제도 운영 근거 미비. 국가정보원 사이버안보 업무와의 역할 분담 이슈.</div>
+</div>
+<div class="kw-section">
+  <div class="kw-title">🏛️ Digital Government Transformation</div>
+  <div class="kw-body">• 해외 동향: (UNDP, 5/5) UNDP가 공공부문 디지털 전환의 주요 장벽으로 예산 부족·디지털 역량·조직 문화·데이터 인프라 등을 지목. (노르웨이, 5/7) Mobai의 안면인식+liveness 기술이 노르웨이 공공 디지털 ID에 채택.<br>• 국내 시사점: UNDP 분석은 행안부의 개도국 디지털정부 ODA 사업 방향 수립에 직접 활용 가능. 노르웨이 디지털 ID 사례는 국민 대상 생체인증 전자증명서 도입 검토의 참고 자료.<br>• 도입 장벽: 생체인증 디지털 ID 도입 시 개인정보보호법·헌법재판소 결정 등 법적 제약. 안면인식 수집에 대한 국민 우려 및 인권 논란.</div>
+</div></div>
+</div>
+<div class="insight-card">
+  <h2>💡 수신자 맞춤 벤치마킹 포인트</h2>
+  <div class="insight-row"><span class="icon">❗</span><span class="text">호주 The Mandarin의 공공 AI 도입 장벽 분석 — 행안부 AI정부실에서 진행 중인 공공기관 AI 도입 실태조사의 체크리스트로 바로 활용. 레거시 시스템·조직 문화·리스크 회피가 어디서 걸리는지 한국 데이터와 비교해보면 기관별 맞춤 전략이 나올 것.</span></div>
+<div class="insight-row"><span class="icon">❗</span><span class="text">Infosecurity Magazine의 크라우드소싱 보안 사례 — 공공부문에 외부 화이트해커를 활용한 취약점 발견 제도 도입 시도. 국정원·행안부 공동으로 파일럿 프로젝트를 기획해볼 만함. 예산 부담이 적고 효과가 입증된 접근법.</span></div>
+<div class="insight-row"><span class="icon">❗</span><span class="text">노르웨이 Mobai 안면인식 디지털 ID — 국내 디지털 신원증명(운전면허증·주민등록증 모바일화) 고도화 단계의 참고 사례. liveness detection 기술이 추가되어 보안성과 편의성을 동시에 확보한 점이 차별점.</span></div>
+
+</div>
+<div class="action-card">
+  <h2>✅ 이번 주 실무 액션</h2>
+  <div class="action-row"><span class="icon">✅</span><span class="text">호주 AI 도입 장벽 분석(The Mandarin)을 국내 공공기관 AI 도입 실태조사 체크리스트에 반영 — 금주 내 검토 — 유사한 장벽 패턴이 한국에서도 확인되는지 비교하면 정책 우선순위 설정에 도움.</span></div>
+<div class="action-row"><span class="icon">✅</span><span class="text">UNDP 디지털 전환 장벽 보고서를 ODA·국제협력 사업 기획에 인용 — 차주까지 영문 원문 확보 — 개도국 디지털정부 컨설팅에서 국제 기준으로 활용할 수 있는 자료.</span></div>
+<div class="action-row"><span class="icon">✅</span><span class="text">크라우드소싱 공공 보안 도입을 위한 관계기관(국정원·과기정통부) 의견 수렴 착수 — 2주 내 — 예산 부담 없는 실효적 사이버보안 수단으로 행안부 차원의 파일럿 검토 가치 있음.</span></div>
+
+</div>
+
+  
+<div class="section-articles">
+  <h2>📋 기사 목록 (6건)</h2>
+  
+<div class="kw-group">
+  <h3>🌐 AI government policy <span>(2건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.1점</span>
+    <span>CX Today</span>
+    <span>2026-05-07</span>
+  </div>
+  <a class="title" href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNcVFhYkltRjFGalpDM2NHUzZIdHY3RkVHcENnampZUC1VOGpJbXp1cmhGYjJNZkxuS3V1bXhiRGVMSW5hazJYWm1Hd2tTeGZoblRPZUlqTnFvdGNBb1Fzc29QQUpUOWNDZzBIUy01UV9YSWpBaldQS0tMS0dZTzVRcDk3NElSU04tMnNVVWQxNjctOTFfbjFRbzBqdDQ?oc=5" target="_blank">Who Is Accountable When Public Sector AI Goes Wrong? - CX Today</a>
+  <ul class="bullets">
+    <li>CX Today가 공공부문 AI 의사결정 오류 시 책임 소재가 모호하다는 문제 제기 — AI 시스템이 행정처분·복지급여 결정 등에 관여할 때 법적 책임 규정이 부재한 현실 지적.</li>
+<li>영국·EU 중심으로 공공 AI 책임성 논의 진행 중, AI 감독기관 설립과 법적 책임 프레임워크 구축 움직임.</li>
+<li>행안부가 추진 중인 공공 AI 도입 가이드라인에 AI 결정에 대한 행정 책임 귀속 규정을 포함해야 함 — 전자정부법 개정 시 반영 필요.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.2점</span>
+    <span>The Mandarin</span>
+    <span>2026-05-05</span>
+  </div>
+  <a class="title" href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVXN2QmZ2dEY0bkR1NmZsN2Z0eXh2MjBQejJpTF9oRnRnQjdYVVNldWEwYjN3WnpNNzhiaGVCNEZTOHZFZHVIUFljVzNiNzhxNl9VbXhTR2RFZzQwZnpna08yUlh5WkdScG9kOUs3OEJfWm1zbENvMWIzdVJHdjZDYWhqNzhqeU1L?oc=5" target="_blank">Why public sector AI uptake keeps stalling - The Mandarin</a>
+  <ul class="bullets">
+    <li>호주 공공정책 전문지 The Mandarin이 공공부문 AI 도입 정체의 주요 원인으로 레거시 시스템·디지털 인력 부족·리스크 회피 조직 문화 세 가지를 분석.</li>
+<li>호주 정부 차원의 AI 도입 촉진 정책에도 불구하고 실제 현장 적용이 지연되는 구조적 문제 진단.</li>
+<li>행안부 공공기관 AI 도입 실태조사 시 호주 사례의 장벽 분석 프레임워크를 체크리스트로 활용 가능 — 유사 패턴 발견 시 맞춤형 지원 전략 수립.</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🔐 public sector cybersecurity <span>(2건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.4점</span>
+    <span>Infosecurity Magazine</span>
+    <span>2026-05-08</span>
+  </div>
+  <a class="title" href="https://news.google.com/rss/articles/CBMihwFBVV95cUxNbXNDUnktTkZXejJkTmNkZE1FMVpsU05hM1ZBelZGandYSEwxXzFlOS1HTEo0dG5lZkhacDBjRlY5ZVdFLTBTVWhnTXZDMjBKNkdKbDhwSTFfYjVoTmNETmpyaktfamYxUFdVVnVRUXl0UzF1cW9ZcFdReVpaS1cycmM1dExyVE0?oc=5" target="_blank">How Crowdsourced Security is Transforming the Public Sector Cybersecurity Landscape - Infosecurity Magazine</a>
+  <ul class="bullets">
+    <li>Infosecurity Magazine이 크라우드소싱 보안(버그 바운티·취약점 공개 프로그램)이 공공부문 사이버보안에 혁신을 가져오고 있다고 보도 — 외부 화이트해커 활용으로 취약점 조기 발견과 비용 절감 효과.</li>
+<li>미국 CISA·영국 NCSC 등 주요국 사이버보안 기관이 크라우드소싱 보안 프로그램 도입 확대 중.</li>
+<li>행안부 사이버보안 업무에 크라우드소싱 취약점 발견 제도 도입 검토 필요 — 국정원 협의 통해 공공기관 대상 파일럿 프로그램 기획 가능.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.6점</span>
+    <span>openPR.com</span>
+    <span>2026-05-06</span>
+  </div>
+  <a class="title" href="https://news.google.com/rss/articles/CBMilwFBVV95cUxNSkc5X1hhUjg0U25KMTE1OWQ0dnJJVXhEMHZhdXl4a2x5cHp3NnUySVh5WURtZDBMVmtWbXh2MnFxNVFhcTE5anZrRWxYdHhrWVNYb083aHhOMVVBZV94YXpTa0FJc2VwcE0xQnZabHhhTDZraTQ4N01NbTNmUFY4WHRtc2ZWdU9OeVJQZ092cWxFN1RBaU40?oc=5" target="_blank">Government & Public Sector Cybersecurity Market Is Booming Worldwide | Palo Alto Networks • CrowdStrike • Cisco - openPR.com</a>
+  <ul class="bullets">
+    <li>공공부문 사이버보안 시장이 글로벌 수준에서 급성장 중 — Palo Alto Networks·CrowdStrike·Cisco 등 주요 업체 주도로 공공 클라우드 보안·위협 탐지 수요 증가.</li>
+<li>주요 보안 업체들이 정부 전용 보안 솔루션 라인업을 확대하며 공공 시장 공략 가속화.</li>
+<li>행안부 국가정보자원관리원 클라우드 전환 시 참고할 공공 보안 솔루션 동향 — 다만 openPR 보도자료 기반이므로 추가 검증 필요.</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🏛️ digital government transformation <span>(2건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.5점</span>
+    <span>fundsforNGOs News</span>
+    <span>2026-05-05</span>
+  </div>
+  <a class="title" href="https://news.google.com/rss/articles/CBMiugFBVV95cUxQaHBjemxBSXdyRXRqdTNKeXFVT2dJRllsTFNiNTJxSmFKaUozMWVHVndnRF85Rzl3VlpqcjZoOFR3Zm1EYXowZnJqeUJpcnBQLWFoTjNaQVFOZEp4MVhmWnNWNDBac1JGU2VYVlpSRmFFN2YyOXg3RTRMMlR0QXN2aktBVUpCQXc1YXZUZDYzYlJLU2lLQkI2WXkycFM4NzcwRVVWSUFZX19JYW01cXNhOU1JTWNtTHR4eXc?oc=5" target="_blank">UNDP Highlights Key Barriers to Public Sector Digital Transformation Success - fundsforNGOs News</a>
+  <ul class="bullets">
+    <li>UNDP가 공공부문 디지털 전환 성공의 주요 장벽으로 예산 부족·디지털 리터러시·조직 문화 저항·데이터 인프라 미비 네 가지를 지목 — 3개 매체가 보도한 주요 이슈.</li>
+<li>개도국 중심 분석이지만 선진국에서도 유사한 장벽이 존재, 글로벌 공공 디지털 전환의 보편적 과제로 부각.</li>
+<li>행안부의 개도국 디지털정부 ODA 사업 기획 시 UNDP 분석을 국제 기준으로 활용 가능 — 개도국 맞춤형 컨설팅 프레임워크로 직접 적용.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.1점</span>
+    <span>Biometric Update</span>
+    <span>2026-05-07</span>
+  </div>
+  <a class="title" href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNWFNHX3JubVFEM3VVb0VOaW43U2d0UThJSE1IWmJpWnktNXRWcHY5emVXVXRpbzgzZE9CcXdqYzlxN3MwbEl0Q01QMmg3aWhrd0pmZWlxWG93M3pjYlIwSjgwOVk1akNvQU5ORkt6b1BLRnVJcHV5Q3pBbjNUdC1xYzRHX2hTZmhleGtyT1FUaWRkQ1lyTTV0clJ3WHowYkk0TVdUbWtxZ29iQ0pyY2ctSk1HSS10dw?oc=5" target="_blank">Mobai face biometrics, liveness selected for Norway's public sector digital ID - Biometric Update</a>
+  <ul class="bullets">
+    <li>노르웨이가 Mobai의 안면인식 + 라이브니스(liveness) 탐지 기술을 공공 디지털 ID에 채택 — 생체인증 기반 전자신원증명의 선진 사례.</li>
+<li>노르웨이 공공 디지털 ID 시스템에 Mobai의 얼굴 매칭·위조 방지 기술이 적용되어 보안성과 사용자 편의성 동시 확보.</li>
+<li>국내 디지털 신원증명(모바일 운전면허증·주민등록증) 고도화 단계에서 라이브니스 탐지 도입 검토 필요 — 개인정보보호법·헌법재판소 결정 등 법적 정합성 사전 확인.</li>
+
+  </ul>
+</div>
+</div>
+</div>
+
+  <div class="footer">
+    Hermes Agent · 자동 생성 뉴스 브리핑<br>
+    Obsidian vault에 함께 저장됨
+  </div>
+
+</div>
+</body>
+</html>
