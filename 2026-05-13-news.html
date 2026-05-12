@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>뉴스 브리핑 2026.05.13 (Wed)</title>
+<style>
+:root {
+  --background: #0c0a09;
+  --foreground: #fafaf9;
+  --card: #1c1917;
+  --card-foreground: #fafaf9;
+  --card-hover: #292524;
+  --border: #27272a;
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --muted: #292524;
+  --muted-foreground: #a8a29e;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--font-sans);
+  background:var(--background);color:var(--foreground);
+  line-height:1.6;-webkit-font-smoothing:antialiased
+}
+.container{max-width:720px;margin:0 auto;padding:40px 20px}
+
+/* ── Card ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+.card-header{margin-bottom:16px}
+.card-header h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)}
+.card-body{color:var(--card-foreground);font-size:15px;line-height:1.7}
+
+/* ── Header ── */
+.header{text-align:center;padding:32px 0 40px}
+.header h1{font-size:28px;font-weight:700;letter-spacing:-0.02em}
+.header .date{margin-top:8px;color:var(--muted-foreground);font-size:14px}
+.header .tag{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:9999px;font-size:12px;font-weight:600;border:1px solid var(--border)}
+.tag-domestic{color:#60a5fa;border-color:#1e3a5f;background:rgba(96,165,250,0.08)}
+.tag-intl{color:#c084fc;border-color:#3b1f4e;background:rgba(192,132,252,0.08)}
+
+/* ── Divider ── */
+hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+
+/* ── Signal ── */
+.signal-text{font-size:15px;color:var(--muted-foreground);line-height:1.7}
+
+/* ── Compete (Alert/Destructive) ── */
+.alert-destructive{background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.25);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.alert-destructive h2{color:var(--destructive);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
+.alert-line{font-size:14px;color:var(--foreground);padding:8px 0;border-bottom:1px solid rgba(220,38,38,0.12)}
+.alert-line:last-child{border-bottom:none}
+
+/* ── Keyword blocks ── */
+.kw-section{margin-bottom:24px}
+.kw-section:last-child{margin-bottom:0}
+.kw-title{font-size:15px;font-weight:600;margin-bottom:8px;color:var(--foreground)}
+.kw-body{font-size:13px;color:var(--muted-foreground);padding-left:14px;border-left:2px solid var(--primary);line-height:1.6}
+.kw-body br{margin-bottom:4px}
+
+/* ── Insight items ── */
+.insight-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.insight-card h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#c084fc;margin-bottom:16px}
+.insight-row{display:flex;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--foreground);margin-bottom:6px}
+.insight-row:last-child{margin-bottom:0}
+.insight-row:hover{background:var(--card-hover)}
+.insight-row .icon{flex-shrink:0;font-size:16px}
+
+/* ── Action items ── */
+.action-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.action-card h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--success);margin-bottom:16px}
+.action-row{display:flex;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--foreground);margin-bottom:4px}
+.action-row:last-child{margin-bottom:0}
+.action-row:hover{background:var(--card-hover)}
+
+/* ── Articles ── */
+.section-articles{margin:0}
+.section-articles h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground);margin-bottom:20px}
+.kw-group{margin-bottom:28px}
+.kw-group:last-child{margin-bottom:0}
+.kw-group h3{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--foreground)}
+.kw-group h3 span{color:var(--muted-foreground);font-weight:400;font-size:13px}
+
+/* ── Article Card ── */
+.article-card{padding:16px;margin-bottom:8px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}
+.article-card:last-child{margin-bottom:0}
+.article-card:hover{border-color:#3f3f46}
+.article-card .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:12px;color:var(--muted-foreground);flex-wrap:wrap}
+.article-card .badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;line-height:1.4}
+.badge-ISSUE{color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2)}
+.badge-WATCH{color:#fbbf24;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2)}
+.badge-ARCHIVE{color:#6b7280;background:rgba(107,114,128,0.1);border:1px solid rgba(107,114,128,0.2)}
+.article-card .title{font-size:14px;font-weight:500;color:var(--foreground);text-decoration:none;display:block;margin-bottom:8px;transition:color 0.15s}
+.article-card .title:hover{color:var(--primary)}
+.article-card .bullets{padding-left:18px;font-size:13px;color:var(--muted-foreground);line-height:1.5}
+.article-card .bullets li{margin-bottom:2px}
+.article-card .bullets li::marker{color:var(--border)}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:32px 0;color:var(--muted-foreground);font-size:12px;border-top:1px solid var(--border);margin-top:8px}
+
+/* ── Transition ── */
+.card,.article-card,.insight-row,.action-row{transition:border-color 0.15s,background 0.15s}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>뉴스 브리핑</h1>
+    <div class="date">2026.05.13 (Wed)</div>
+    <span class="tag tag-domestic">공공 AI·전자정부</span>
+  </div>
+
+  
+
+  
+<div class="section-articles">
+  <h2>📋 기사 목록 (30건)</h2>
+  
+<div class="kw-group">
+  <h3>🤖 공공 AI <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.4점</span>
+    <span></span>
+    <span>2026-05-11</span>
+  </div>
+  <a class="title" href="https://www.sisaon.co.kr/news/articleView.html?idxno=200956" target="_blank">공공 AI 시장, 3조 시대…삼성SDS·LG CNS, '선점 경쟁' 본격화</a>
+  <ul class="bullets">
+    <li>소프트웨어정책연구소(SPRi) 보고서에 따르면 공공 AI 시장이 10년간 11배 성장해 연간 계약 규모 3조 원에 육박하며 민간기업 선점 경쟁이 본격화</li>
+<li>삼성SDS·LG CNS 등 대형 SI 업체가 공공 AI 시장 선점 경쟁 중</li>
+<li>AI정부실 정책 수립과 예산 편성 시 시장 규모를 참고해야 할 중요 지표</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.6점</span>
+    <span></span>
+    <span>2026-05-13</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/081/0003643274?sid=102" target="_blank">"개인정보 보호와 좋은 데이터 갖춘 AI 발전은 동반자적 관계" [최광수 국정기획위 AI TF팀장 인터뷰]</a>
+  <ul class="bullets">
+    <li>국정기획위 AI TF팀장 최광수 인터뷰, 개인정보 보호와 AI 발전의 균형 강조 및 사후 규제 중심 전환 필요성 제기</li>
+<li>차기 정부 AI 정책 방향을 가늠할 수 있는 신호</li>
+<li>행안부 개인정보 보호 정책과 AI 도입 정책 간의 조율 시사점</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.1점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://www.newscj.com/news/articleView.html?idxno=3400311" target="_blank">[IT칼럼] AI 기본사회 구현, 새로운 국가 경쟁력이다</a>
+  <ul class="bullets">
+    <li>공공 AI 인프라 확충, 개방형 LLM 개발, AI 인재 양성, AI 안전성 평가 체계 구축 등 주요 과제 제시</li>
+<li>교육·공공·취약계층 등 전방위 AI 적용 필요성 강조</li>
+<li>일반론적 칼럼으로 정책 참고 수준 제한적</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.5점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://www.shinailbo.co.kr/news/articleView.html?idxno=5019935" target="_blank">봉화군, 공직자 대상 AI 역량강화 교육 실시…실무형 활용 중심</a>
+  <ul class="bullets">
+    <li>경북 봉화군이 5/6~8일 공직자 AI 역량강화 교육 실시, 실무형 활용 중심</li>
+<li>지자체 단위 AI 전환 사례</li>
+<li>타 지자체 AI 교육 벤치마킹 가능하나 단일 사례</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>3.4점</span>
+    <span></span>
+    <span>2026-05-11</span>
+  </div>
+  <a class="title" href="https://www.safetimes.co.kr/news/articleView.html?idxno=242681" target="_blank">지방재정공제회 AI 혁신대상 '그랑프리 대상' 공공 AX 선도</a>
+  <ul class="bullets">
+    <li>한국지방재정공제회(LOFA)가 제2회 대한민국 AI 혁신대상 그랑프리 대상 수상</li>
+<li>공공기관 AX 선도 모델 사례</li>
+<li>단일 기관 수상으로 파급력 제한적</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🏛️ 디지털정부 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>6.4점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/030/0003426769?sid=110" target="_blank">[ET시론] 대한민국 재난·안전, 이제 'AI기반국가운영체계(GovAX)'로 전환해야</a>
+  <ul class="bullets">
+    <li>이태원 참사 교훈으로 AI 기반 실시간 국가운영체계(GovAX) 구축 주장, 전자정부에서 데이터 기반 AI 국가운영으로 전환 필요성 제기</li>
+<li>행안부 재난안전 업무와 직결되는 정책 방향</li>
+<li>행안부 AI정부실의 재난안전 AI 도입 과제와 연결, 재난대응체계 고도화 시사점</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.7점</span>
+    <span></span>
+    <span>2026-05-11</span>
+  </div>
+  <a class="title" href="https://news.mtn.co.kr/news-detail/2026051110131136909" target="_blank">[더 리더] 안드레스 수트 에스토니아 에너지환경부 장관 "한국과의 협력 확대"</a>
+  <ul class="bullets">
+    <li>전자정부 강국 에스토니아의 환경부 장관, 데이터 기반 행정 역량을 기후 정책에 접목 및 한국과 협력 확대 의사 표명</li>
+<li>데이터 기반 행정-기후정책 융합, 전자정부 해외 협력</li>
+<li>에스토니아 전자정부 사례는 행안부 데이터 기반 행정 정책의 해외 참고 사례</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>3.8점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/030/0003426771?sid=101" target="_blank">[블록체인 칼럼]블록체인 산업 발전을 위한 국가 로드맵은 있는가</a>
+  <ul class="bullets">
+    <li>전자정부 블록체인 활용 가능성 논의, 디지털 신원 인증과 공공 증명서 분야 적용 제안</li>
+<li>블록체인 기반 디지털 인증·공공 증명</li>
+<li>일반론적 칼럼으로 구체적 정책 참고 어려움</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>3.5점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://www.womaneconomy.co.kr/news/articleView.html?idxno=253606" target="_blank">[인터뷰] 김화종 제약협 K-MELLODDY 사업단장 "신약 혁신, '연합학습' 플랫폼에서"</a>
+  <ul class="bullets">
+    <li>신약 개발 연합학습 플랫폼 인터뷰, 전자정부 시스템 해킹 비유로 언급</li>
+<li>제약-IT 융합, 연합학습 기술</li>
+<li>전자정부와 직접 관련 낮음</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>2.8점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="http://www.breaknews.com/1206591" target="_blank">대경ICT산업협회·대경로봇기업진흥협회, 오픈팩토리 개최</a>
+  <ul class="bullets">
+    <li>YH데이타베이스의 sLLM·RAG 기반 AI 서비스, 전자정부 표준프레임워크 기반 구축 사업 소개</li>
+<li>지역 ICT·로봇 산업 교류 행사</li>
+<li>전자정부 표준프레임워크 언급 외 직접 관련성 낮음</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🔐 사이버보안 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.5점</span>
+    <span></span>
+    <span>2026-05-13</span>
+  </div>
+  <a class="title" href="https://www.voakorea.com/a/google-blocks-ai-driven-hacking-plot-n-korea-linked-hackers-using-ai-for-zero-day-attacks-20260512/8149224.html" target="_blank">구글, AI 활용 해킹 시도 선제 차단…"북한 연계 해킹조직 AI 무기화"</a>
+  <ul class="bullets">
+    <li>구글이 북한 연계 해킹 조직의 AI 활용 제로데이 공격 시도를 선제 차단, AI 기반 사이버 위협이 실전·상용 단계 진입</li>
+<li>AI 사이버보안, 국가 지원 해킹 대응 기술</li>
+<li>공공 정보시스템 장애관리·사이버보안 업무에 직접적 시사점, AI 활용 해킹 대비 필요</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>7.2점</span>
+    <span></span>
+    <span>2026-05-13</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/081/0003643257?sid=101" target="_blank">중대 개인 정보 유출 기업, 매출액 최대 10% 과징금</a>
+  <ul class="bullets">
+    <li>개인정보위, 5/12 국무회의에 '예방 중심 개인정보 관리체계 전환 계획' 보고, 9/11 시행 개정 개인정보보호법에 반복·중대 침해 시 매출 10% 과징금</li>
+<li>공공·민간 전체 개인정보 관리 체계</li>
+<li>공공 정보시스템 개인정보 관리 체계 전면 점검 필요, 9월 시행 전 대비 기간 약 4개월</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>6.0점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="http://www.ftoday.co.kr/news/articleView.html?idxno=358805" target="_blank">KT, 1분기 영업익 전년 比 29.9% 감소…"해킹 사태 영향"</a>
+  <ul class="bullets">
+    <li>KT 1분기 영업익 4827억원, 전년比 29.9% 감소…펨토셀 해킹 사태로 23만 8천명 가입자 이탈, 약 4500억원 위약금 면제·보상 비용</li>
+<li>통신·정보통신 인프라 보안</li>
+<li>대규모 해킹 사태의 경제적 후과를 보여주는 사례, 공공 정보시스템 보안 투자 근거로 활용 가능</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://www.ngonews.kr/news/articleView.html?idxno=229715" target="_blank">KT 1분기 영업이익 30% 급감: 해킹과 경영 실패의 청구서가 돌아왔다</a>
+  <ul class="bullets">
+    <li>KT 해킹 사태 관련 동일 사건 중복 기사</li>
+<li>통신·보안</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.8점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/031/0001028169?sid=102" target="_blank">'비선계엄' 노상원, 개인정보보호법 위반 징역 2년 확정</a>
+  <ul class="bullets">
+    <li>대법원, 노상원 전 국군정보사령관 개인정보보호법 위반 징역 2년 확정</li>
+<li>개인정보보호법 집행</li>
+<li>정치적 사건으로 정책적 시사점 제한적</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>☁️ 공공 클라우드 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>6.7점</span>
+    <span></span>
+    <span>2026-05-10</span>
+  </div>
+  <a class="title" href="https://www.ccdn.co.kr/news/articleView.html?idxno=1077231" target="_blank">'제2의 데이터센터 마비 막는다'…음성소방서·한국고용정보원 맞손</a>
+  <ul class="bullets">
+    <li>작년 9월 대전 국가정보자원관리원 화재를 계기로 음성소방서와 한국고용정보원이 데이터센터 안전관리·비상대응 협약 체결</li>
+<li>국가정보자원관리원·데이터센터 안전</li>
+<li>국가정보자원관리원 대전센터 이전·화재 후속 조치와 직결, 행안부 장애관리 체계 개선에 직접 활용</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>6.1점</span>
+    <span></span>
+    <span>2026-05-07</span>
+  </div>
+  <a class="title" href="http://www.00news.co.kr/news/articleView.html?idxno=103649" target="_blank">심우정 불법계엄 관여했나...종합특검, 이프로스 압수수색 재개</a>
+  <ul class="bullets">
+    <li>종합특검, 국가정보자원관리원 광주센터에서 심우정 전 검찰총장 계엄 관여 의혹 관련 이프로스 서버 압수수색 재개</li>
+<li>국가정보자원관리원</li>
+<li>정보관리원 광주센터가 수사 대상이 된 점, 시설 보안·운영 관리 측면에서 주시 필요</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.6점</span>
+    <span></span>
+    <span>2026-05-11</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/629/0000498190?sid=102" target="_blank">'심우정 내란 가담 의혹' 대검 압수수색…헌법존중TF 자료 확보</a>
+  <ul class="bullets">
+    <li>특검이 대검 압수수색, 국가정보자원관리원 광주센터 이프로스 서버 압수수색 지속 중</li>
+<li>국가정보자원관리원</li>
+<li>정보관리원 광주센터 수사 장기화, 행안부 관리 기관으로서 상황 파악 필요</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-07</span>
+  </div>
+  <a class="title" href="https://kjmbc.co.kr/NewsArticle/1517641" target="_blank">'심우정 계엄 관여' 의혹, 정보관리원 광주센터 압수수색</a>
+  <ul class="bullets">
+    <li>5/7 광주센터 압수수색 동일 사건 중복 기사</li>
+<li>국가정보자원관리원</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-11</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/366/0001163380?sid=102" target="_blank">2차특검, 대검 압수수색… '尹 항고 포기·TF 자료 제출 거부' 관련</a>
+  <ul class="bullets">
+    <li>5/11 대검 압수수색 동일 사건 중복 기사</li>
+<li>국가정보자원관리원</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🏢 행안부 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>6.2점</span>
+    <span></span>
+    <span>2026-05-13</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/056/0012179820?sid=102" target="_blank">"단전·단수 전화 한통, 가볍지 않다" 이상민 2심 징역 9년</a>
+  <ul class="bullets">
+    <li>이상민 전 행안부 장관, 항소심에서 1심 7년보다 가중된 징역 9년 선고, 재판부 "국민 안전 책임 회피" 지적</li>
+<li>행정안전부</li>
+<li>행안부 리더십 공백 장기화, 조직 위상 및 대외 신뢰도 영향</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/052/0002352154?sid=102" target="_blank">'내란 가담' 이상민 항소심서 징역 9년...1심보다 늘어</a>
+  <ul class="bullets">
+    <li>이상민 2심 판결 동일 사건 중복 기사</li>
+<li>행정안전부</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.5점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://www.ulsanpress.net/news/articleView.html?idxno=575100" target="_blank">울산 국회의원 행안부 특교세 78억원 확보</a>
+  <ul class="bullets">
+    <li>울산 국회의원들, 상반기 행안부 특별교부세 78억원 확보, 주민편의·재난안전 사업에 배정</li>
+<li>지자체·지역구 예산</li>
+<li>통상적 특교세 배정으로 정책 시사점 제한적</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-13</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/055/0001355663?sid=102" target="_blank">"1심 형량 가벼워 부당"…2년 늘어난 징역 9년</a>
+  <ul class="bullets">
+    <li>이상민 2심 판결 동일 사건 중복 기사</li>
+<li>행정안전부</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/056/0012179767?sid=102" target="_blank">이상민 2심 '징역 7년→9년'·노상원 '2년 확정'</a>
+  <ul class="bullets">
+    <li>이상민 2심 판결 동일 사건 중복 기사</li>
+<li>행정안전부</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>💻 공공정보화 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.5점</span>
+    <span></span>
+    <span>2026-05-09</span>
+  </div>
+  <a class="title" href="https://www.asiatoday.co.kr/kn/view.php?key=***" target="_blank">AI 행정·스마트시티 공동 프로젝트 추진…"아시아 수도 도시 연대 확대"</a>
+  <ul class="bullets">
+    <li>서울AI재단과 일본 GovTech Tokyo가 AI·디지털 행정 공동 연구·스마트도시 프로젝트 MOU 체결</li>
+<li>AI 행정·스마트시티 국제 협력</li>
+<li>한일 수도 간 AI 행정 협력 사례, 행안부 AI정부실 해외 협력 벤치마킹 가능</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.9점</span>
+    <span></span>
+    <span>2026-05-09</span>
+  </div>
+  <a class="title" href="https://www.kgnews.co.kr/news/article.html?no=894893" target="_blank">부천시, 스마트도시 통합운영센터 구축 완료…재난 대응·도시관리 '한 눈에'</a>
+  <ul class="bullets">
+    <li>부천시, 스마트도시 통합운영센터 구축 완료, CCTV 1000여대 통합 플랫폼으로 방범·교통·재난 통합 관리</li>
+<li>지자체 스마트도시·정보화 사업</li>
+<li>단일 지자체 사례로 정책적 파급력 제한적</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.4점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/082/0001380433?sid=101" target="_blank">HUG "지역균형발전 앞장, 지방 이전 공공기관 귀감 되겠다"</a>
+  <ul class="bullets">
+    <li>HUG, 부산서 지방 이전 공공기관 최초 '지역산업 육성 정보화사업 참여' 간담회 개최, AX 전환 강조</li>
+<li>공공기관 정보화사업·AX</li>
+<li>단일 기관 사례로 정책적 시사점 제한적</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-12</span>
+  </div>
+  <a class="title" href="https://busanmbc.co.kr/01_new/new01_view.asp?idx=285276" target="_blank">주택도시보증공사, 지역산업 육성 위한 정보화사업 참여 간담회</a>
+  <ul class="bullets">
+    <li>HUG 정보화사업 간담회 동일 사건 중복 기사</li>
+<li>공공기관 정보화</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>0.0점</span>
+    <span></span>
+    <span>2026-05-08</span>
+  </div>
+  <a class="title" href="http://news.lghellovision.net/news/articleView.html?idxno=542355" target="_blank">부천시, 스마트도시 통합운영센터 정보화사업 준공보고회 열어</a>
+  <ul class="bullets">
+    <li>부천시 스마트도시 동일 사건 중복 기사</li>
+<li>지자체 스마트도시</li>
+<li>대표 기사 1건으로 통합</li>
+
+  </ul>
+</div>
+</div>
+</div>
+
+  <div class="footer">
+    Hermes Agent · 자동 생성 뉴스 브리핑<br>
+    Obsidian vault에 함께 저장됨
+  </div>
+
+</div>
+</body>
+</html>
