@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>뉴스 브리핑 2026.05.15 (Fri)</title>
+<style>
+:root {
+  --background: #0c0a09;
+  --foreground: #fafaf9;
+  --card: #1c1917;
+  --card-foreground: #fafaf9;
+  --card-hover: #292524;
+  --border: #27272a;
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --muted: #292524;
+  --muted-foreground: #a8a29e;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--font-sans);
+  background:var(--background);color:var(--foreground);
+  line-height:1.6;-webkit-font-smoothing:antialiased
+}
+.container{max-width:720px;margin:0 auto;padding:40px 20px}
+
+/* ── Card ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+.card-header{margin-bottom:16px}
+.card-header h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)}
+.card-body{color:var(--card-foreground);font-size:15px;line-height:1.7}
+
+/* ── Header ── */
+.header{text-align:center;padding:32px 0 40px}
+.header h1{font-size:28px;font-weight:700;letter-spacing:-0.02em}
+.header .date{margin-top:8px;color:var(--muted-foreground);font-size:14px}
+.header .tag{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:9999px;font-size:12px;font-weight:600;border:1px solid var(--border)}
+.tag-domestic{color:#60a5fa;border-color:#1e3a5f;background:rgba(96,165,250,0.08)}
+.tag-intl{color:#c084fc;border-color:#3b1f4e;background:rgba(192,132,252,0.08)}
+
+/* ── Divider ── */
+hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+
+/* ── Signal ── */
+.signal-text{font-size:15px;color:var(--muted-foreground);line-height:1.7}
+
+/* ── Compete (Alert/Destructive) ── */
+.alert-destructive{background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.25);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.alert-destructive h2{color:var(--destructive);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
+.alert-line{font-size:14px;color:var(--foreground);padding:8px 0;border-bottom:1px solid rgba(220,38,38,0.12)}
+.alert-line:last-child{border-bottom:none}
+
+/* ── Keyword blocks ── */
+.kw-section{margin-bottom:24px}
+.kw-section:last-child{margin-bottom:0}
+.kw-title{font-size:15px;font-weight:600;margin-bottom:8px;color:var(--foreground)}
+.kw-body{font-size:13px;color:var(--muted-foreground);padding-left:14px;border-left:2px solid var(--primary);line-height:1.6}
+.kw-body br{margin-bottom:4px}
+
+/* ── Insight items ── */
+.insight-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.insight-card h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#c084fc;margin-bottom:16px}
+.insight-row{display:flex;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--foreground);margin-bottom:6px}
+.insight-row:last-child{margin-bottom:0}
+.insight-row:hover{background:var(--card-hover)}
+.insight-row .icon{flex-shrink:0;font-size:16px}
+
+/* ── Action items ── */
+.action-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+.action-card h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--success);margin-bottom:16px}
+.action-row{display:flex;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--foreground);margin-bottom:4px}
+.action-row:last-child{margin-bottom:0}
+.action-row:hover{background:var(--card-hover)}
+
+/* ── Articles ── */
+.section-articles{margin:0}
+.section-articles h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground);margin-bottom:20px}
+.kw-group{margin-bottom:28px}
+.kw-group:last-child{margin-bottom:0}
+.kw-group h3{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--foreground)}
+.kw-group h3 span{color:var(--muted-foreground);font-weight:400;font-size:13px}
+
+/* ── Article Card ── */
+.article-card{padding:16px;margin-bottom:8px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}
+.article-card:last-child{margin-bottom:0}
+.article-card:hover{border-color:#3f3f46}
+.article-card .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:12px;color:var(--muted-foreground);flex-wrap:wrap}
+.article-card .badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;line-height:1.4}
+.badge-ISSUE{color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2)}
+.badge-WATCH{color:#fbbf24;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2)}
+.badge-ARCHIVE{color:#6b7280;background:rgba(107,114,128,0.1);border:1px solid rgba(107,114,128,0.2)}
+.article-card .title{font-size:14px;font-weight:500;color:var(--foreground);text-decoration:none;display:block;margin-bottom:8px;transition:color 0.15s}
+.article-card .title:hover{color:var(--primary)}
+.article-card .bullets{padding-left:18px;font-size:13px;color:var(--muted-foreground);line-height:1.5}
+.article-card .bullets li{margin-bottom:2px}
+.article-card .bullets li::marker{color:var(--border)}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:32px 0;color:var(--muted-foreground);font-size:12px;border-top:1px solid var(--border);margin-top:8px}
+
+/* ── Transition ── */
+.card,.article-card,.insight-row,.action-row{transition:border-color 0.15s,background 0.15s}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>뉴스 브리핑</h1>
+    <div class="date">2026.05.15 (Fri)</div>
+    <span class="tag tag-domestic">공공 AI·전자정부</span>
+  </div>
+
+  
+<div class="card">
+  <div class="card-header"><h2>📌 이번 주 핵심 시그널</h2></div>
+  <div class="card-body signal-text">공공 AI는 국민비서·범정부 사업 수주 중심으로 체감형 서비스와 SI 수익모델이 동시에 전진 중.
+장애관리 축은 데이터센터 화재 대응, 공급망 보안, 개인정보 유출 제재로 옮겨가며 운영 안정성 증빙 요구가 커지는 흐름.</div>
+</div>
+<div class="card">
+  <div class="card-header"><h2>🔍 키워드별 핵심 브리핑</h2></div>
+  <div class="card-body">
+<div class="kw-section">
+  <div class="kw-title">🤖 공공 AI</div>
+  <div class="kw-body">• 핵심 동향: (5.14) 카카오 국민비서 음성 인식, 삼성SDS 범정부 AI 수주 보도.<br>• 수혜 섹터: 공공IT·AI·클라우드.<br>• 리스크: 민간 플랫폼 의존과 공공 AI 사업자 쏠림 점검 필요.</div>
+</div>
+<div class="kw-section">
+  <div class="kw-title">🏛️ 디지털정부</div>
+  <div class="kw-body">• 핵심 동향: (5.14~15) 국민비서 지원금 안내, 해외 AI 장관 실효성 논란 보도.<br>• 수혜 섹터: 디지털 민원·GovTech.<br>• 리스크: 이름만 AI인 서비스는 신뢰를 깎음.</div>
+</div>
+<div class="kw-section">
+  <div class="kw-title">🔐 사이버보안</div>
+  <div class="kw-body">• 핵심 동향: (5.14~15) 공공기관 보안평가 S등급, 개인정보 유출 수사·제재, 공급망 보안 경고 확산.<br>• 수혜 섹터: 보안·개인정보·AI 보안 자동화.<br>• 리스크: 협력사가 뒷문이 되는 공급망 취약점.</div>
+</div>
+<div class="kw-section">
+  <div class="kw-title">☁️ 공공 클라우드</div>
+  <div class="kw-body">• 핵심 동향: (5.10~14) 국정자원 광주센터 압수수색, 고용정보원-소방서 데이터시설 안전 협약, SDS PPP 언급.<br>• 수혜 섹터: 공공 클라우드·데이터센터 안전.<br>• 리스크: 센터 장애·수사 대응 시 자료 집행과 회선 병목까지 운영 리스크화.</div>
+</div>
+<div class="kw-section">
+  <div class="kw-title">💻 공공정보화</div>
+  <div class="kw-body">• 핵심 동향: (5.14) 경기도 C4IR 코리아 멤버십, HUG 지역 IT업체 정보화사업 간담회.<br>• 수혜 섹터: GovTech·지역 공공IT.</div>
+</div></div>
+</div>
+<div class="insight-card">
+  <h2>💡 수신자 맞춤 시사점</h2>
+  <div class="insight-row"><span class="icon">❗</span><span class="text">국민비서가 음성·예약으로 넓어지면 민원 접점의 AI 품질 기준을 행안부가 먼저 잡아야 함.</span></div>
+<div class="insight-row"><span class="icon">❗</span><span class="text">대전센터 이전은 시설 이전이 아니라 화재·수사·회선 병목까지 포함한 운영 연속성 과제로 봐야 함.</span></div>
+<div class="insight-row"><span class="icon">❗</span><span class="text">공급망 보안은 본청보다 협력사·위탁사 통제 증빙이 먼저 터질 가능성이 큼.</span></div>
+
+</div>
+<div class="action-card">
+  <h2>✅ 이번 주 실무 액션</h2>
+  <div class="action-row"><span class="icon">✅</span><span class="text">국민비서 AI 기능 현황을 정리 — 금주 중 — 음성·예약 연계가 민원처리 기준에 미칠 영향 선점.</span></div>
+<div class="action-row"><span class="icon">✅</span><span class="text">국정자원 이전 리스크 체크리스트에 화재·압수수색·회선 지연 항목 추가 — 다음 회의 전 — 장애관리 범위 확장 필요.</span></div>
+<div class="action-row"><span class="icon">✅</span><span class="text">주요 위탁·협력사 보안 점검 항목 재확인 — 이번 달 내 — 공급망 사고는 책임소재가 늦게 갈리면 더 아픔.</span></div>
+
+</div>
+
+  
+<div class="section-articles">
+  <h2>📋 기사 목록 (27건)</h2>
+  
+<div class="kw-group">
+  <h3>🤖 공공 AI <span>(2건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>6.7점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="http://www.sisacast.kr/news/articleView.html?idxno=95920" target="_blank">카카오,  AI  국민비서 음성 인식 기능 추가... " 공공 시설 예약 한번에"</a>
+  <ul class="bullets">
+    <li>5월14일 카카오가 국민비서에 음성 인식과 공공시설 예약 연계 기능을 추가했다고 보도됐다.</li>
+<li>공공 AI·디지털 민원·생활밀착형 공공서비스 플랫폼이 수혜 영역이다.</li>
+<li>민원 접점 AI 품질·접근성·민간 플랫폼 의존성 기준을 행안부가 점검할 필요가 있다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>6.4점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.g-enews.com/view.php?ud=2026051410004316683d7a510102_1" target="_blank">삼성SDS, 범정부 AI 사업 연이은 수주… AX 수익 모델 '안정권' 전망</a>
+  <ul class="bullets">
+    <li>5월14일 삼성SDS가 정부·공공 AI 사업을 잇달아 수주해 AX 수익모델 안정권 전망이 나왔다.</li>
+<li>공공 AI·데이터·클라우드 SI 대기업이 수혜 대상으로 거론된다.</li>
+<li>범정부 AI 사업의 특정 사업자 집중과 행정망·인터넷망 분리 운영 역량 확인이 필요하다.</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🏛️ 디지털정부 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.2점</span>
+    <span></span>
+    <span>2026-05-15</span>
+  </div>
+  <a class="title" href="https://www.mhns.co.kr/news/articleView.html?idxno=747501" target="_blank">보성군, 18일부터 2차 고유가 피해지원금 지급… 소득 하위 70%에 25만 원</a>
+  <ul class="bullets">
+    <li>5월15일 보성군이 18일부터 소득 하위 70%에 25만 원 고유가 피해지원금을 지급한다고 보도됐다.</li>
+<li>국민비서·지자체 복지행정·온라인 신청 채널이 관련 영역이다.</li>
+<li>국민비서가 수급자 확인 채널로 쓰여 디지털 민원 안내 정확도 관리가 중요하다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.3점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/056/0012181217?sid=104" target="_blank">알바니아 AI 장관, 부패 척결 실효성 논란</a>
+  <ul class="bullets">
+    <li>5월14일 알바니아 AI 장관이 기존 전자정부 챗봇에 상징만 덧씌웠다는 비판을 받는다고 보도됐다.</li>
+<li>전자정부·공공 AI 거버넌스·조달 투명성 논의가 관련된다.</li>
+<li>공공 AI 도입 시 명칭보다 프로세스 개선 증거를 제시해야 한다는 반면교사다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.7점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.weeklytrade.co.kr/news/view.html?section=1&category=3&item=&no=99800" target="_blank">미토스와 딥시크… 미중 AI 전쟁의 서로 다른 최전선</a>
+  <ul class="bullets">
+    <li>5월14일 AI 도구가 전자정부·공항·병원 등 중요 인프라 침투에 악용될 수 있다는 보도가 나왔다.</li>
+<li>사이버보안·중요정보통신기반시설·AI 보안 분야가 관련된다.</li>
+<li>공공 정보시스템 장애관리에서 AI 기반 공격 시나리오 반영이 필요하다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.9점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="http://www.hansbiz.co.kr/news/articleView.html?idxno=838881" target="_blank">스카이월드와이드, AI 전략 세미나 2026 서울 등 4개 도시 개최</a>
+  <ul class="bullets">
+    <li>5월14일 스카이월드와이드가 AI 전략 세미나를 열고 전자정부 표준프레임워크 사업 참여 이력을 소개했다.</li>
+<li>AI·데이터 컨설팅 및 공공기관 정보화 사업자가 관련된다.</li>
+<li>행사 홍보 성격이 강해 정책·장애관리 직접성은 낮다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.6점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.idaegu.co.kr/news/articleView.html?idxno=548089" target="_blank">대경ICT산업협회, 제15차 ICT·로봇 기업 오픈팩토리 개최</a>
+  <ul class="bullets">
+    <li>5월14일 대경ICT산업협회가 ICT·로봇 기업 오픈팩토리를 개최했다고 보도됐다.</li>
+<li>sLLM·RAG·전자정부 표준프레임워크 수행 지역 ICT 기업이 관련된다.</li>
+<li>지역 기업 소개 성격으로 중앙 공공 AI 정책 연결성은 제한적이다.</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🔐 사이버보안 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.9점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/082/0001380862?sid=101" target="_blank">[에너지 소식] 광해광업공단, 개인정보 보호· 사이버보안  분야 ‘최고 ...</a>
+  <ul class="bullets">
+    <li>5월14일 광해광업공단이 2025년 공공기관 개인정보 보호수준 평가 S등급과 사이버보안 실태평가 3년 연속 우수를 받았다고 보도됐다.</li>
+<li>공공기관 보안평가·개인정보보호·준정부기관 보안체계가 관련된다.</li>
+<li>공공 정보시스템 보안 수준을 대외 지표로 설명할 때 참고 가능한 사례다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>6.2점</span>
+    <span></span>
+    <span>2026-05-15</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/022/0004128308?sid=101" target="_blank">알리페이에 개인정보 유출… 경찰, 카카오페이 수사</a>
+  <ul class="bullets">
+    <li>5월15일 알리페이 개인정보 유출 관련 카카오페이 수사와 보람상조 2만8000명 유출 과징금 보도가 나왔다.</li>
+<li>개인정보보호·금융플랫폼·위탁처리 보안 관리가 관련된다.</li>
+<li>공공 민원·인증 연계 서비스도 제3자 제공과 안전조치 의무 점검이 필요하다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>2.1점</span>
+    <span></span>
+    <span>2026-05-15</span>
+  </div>
+  <a class="title" href="https://m.entertain.naver.com/article/016/0002643692" target="_blank">‘ 해킹 피해·수십억 빚더미’ 고백한 장동주, 배우 은퇴선언</a>
+  <ul class="bullets">
+    <li>5월15일 배우 장동주의 휴대전화 해킹 피해와 은퇴 선언이 연예 기사로 보도됐다.</li>
+<li>개인 단말 보안 이슈 외 공공부문 수혜 섹터는 제한적이다.</li>
+<li>공공 정보시스템 장애관리나 정책 업무와 직접 연결성은 낮다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>6.9점</span>
+    <span></span>
+    <span>2026-05-15</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/003/0013946155?sid=105" target="_blank">"협력사가 해킹의 '뒷문' 된다"…강병탁 AI스페라 대표 " 보안 도 AI 자동...</a>
+  <ul class="bullets">
+    <li>5월15일 AI 활용 사이버공격 확산 속 협력사와 중소기업이 공급망 보안의 뒷문이 될 수 있다는 경고가 보도됐다.</li>
+<li>공공기관·대기업 협력사 보안, AI 보안 자동화, 공급망 관리 솔루션이 수혜 영역이다.</li>
+<li>공공 정보시스템 위탁·협력사 보안 통제와 장애 책임소재 점검에 바로 연결된다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.7점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="http://www.fntimes.com/html/view.php?ud=202605141959005121dd55077bc2_18" target="_blank">농협중앙회, 농협 구현 위한 2026년 상반기 '정보보호 인사이트 아카데...</a>
+  <ul class="bullets">
+    <li>5월14일 농협중앙회가 정보보호 인사이트 아카데미와 개인정보 보안 서약 등을 진행했다고 보도됐다.</li>
+<li>금융권 임직원 보안교육과 정보보호 체계 강화가 관련된다.</li>
+<li>민간 금융권 내부행사 성격으로 행안부 현안 직접성은 낮다.</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>☁️ 공공 클라우드 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.8점</span>
+    <span></span>
+    <span>2026-05-11</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/629/0000498190?sid=102" target="_blank">'심우정 내란 가담 의혹' 대검 압수수색…헌법존중TF 자료 확보</a>
+  <ul class="bullets">
+    <li>5월11일 특검이 국가정보자원관리원 광주센터 이프로스 서버 압수수색을 계속 진행 중이라고 보도됐다.</li>
+<li>국가 데이터센터·행정망 서버 운영·수사 대응 절차가 관련된다.</li>
+<li>국정자원 센터 운영 시 법집행 대응과 자료 접근·회선 성능도 장애관리 요소가 된다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>6.1점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.g-enews.com/view.php?ud=2026051410004316683d7a510102_1" target="_blank">삼성SDS, 범정부 AI 사업 연이은 수주… AX 수익 모델 '안정권' 전망</a>
+  <ul class="bullets">
+    <li>5월14일 삼성SDS의 국정자원 민관협력형 클라우드 사업자 역할과 망 분리 보안체계 구축 이력이 함께 보도됐다.</li>
+<li>공공 클라우드·행정망·인터넷망 분리 운영과 대구센터 민관협력존이 관련된다.</li>
+<li>대전센터 이전과 PPP 클라우드 연계 시 보안·운영 책임 경계 확인이 필요하다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.0점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/092/0002422747?sid=105" target="_blank">티맥스티베로-이슬림코리아, 국산 DB 인프라 생태계 활성화 '맞손'</a>
+  <ul class="bullets">
+    <li>5월14일 티맥스티베로와 이슬림코리아가 국산 DB 인프라 생태계 활성화를 위해 협력한다고 보도됐다.</li>
+<li>국산 DB·서버·스토리지와 국가정보자원관리원 데이터센터 구축 경험 기업이 관련된다.</li>
+<li>공공 시스템 DB·인프라 국산화 논의 시 안정성 검증 자료 확인이 필요하다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.6점</span>
+    <span></span>
+    <span>2026-05-11</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/366/0001163380?sid=102" target="_blank">2차특검, 대검 압수수색… ‘尹 항고 포기·TF 자료 제출 거부’ 관련</a>
+  <ul class="bullets">
+    <li>5월11일 특검의 국정자원 광주센터 이프로스 서버 영장 집행 절차 재개가 보도됐다.</li>
+<li>행정망 서버와 수사기관 자료 집행 절차가 관련된다.</li>
+<li>같은 날짜 동일 사안의 중복 보도로 대표 기사만 WATCH 처리하고 본 건은 ARCHIVE로 둔다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ISSUE">🔴 ISSUE</span>
+    <span>6.8점</span>
+    <span></span>
+    <span>2026-05-10</span>
+  </div>
+  <a class="title" href="https://www.ccdn.co.kr/news/articleView.html?idxno=1077231" target="_blank">'제2의 데이터센터 마비 막는다'… 음성소방서·한국고용 정보 원 맞손</a>
+  <ul class="bullets">
+    <li>5월10일 음성소방서와 한국고용정보원이 지난해 9월 대전 국가정보자원관리원 화재를 계기로 데이터시설 안전 협약을 맺었다고 보도됐다.</li>
+<li>공공 데이터센터·재난안전·비상대응 체계가 직접 수혜 영역이다.</li>
+<li>대전센터 이전과 공공 정보시스템 장애관리에서 화재 예방·초동대응 체계 점검에 바로 연결된다.</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>🏢 행안부 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>3.8점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://n.news.naver.com/mnews/article/001/0016078277?sid=102" target="_blank">사회연대경제 현장 살펴보는 윤호중 장관</a>
+  <ul class="bullets">
+    <li>5월14일 행안부 장관이 서울 성북구 사회연대경제 기반 주거 모델 현장을 방문했다고 보도됐다.</li>
+<li>사회연대경제·지역 주거 모델이 관련된다.</li>
+<li>AI정부·장애관리와 직접 관련성은 낮다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>3.5점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://ysmbc.co.kr/NewsArticle/1518805" target="_blank">행안부  특별교부세 30억 확보..섬박람회 준비 탄력</a>
+  <ul class="bullets">
+    <li>5월14일 여수시가 행안부 특별교부세 30억 원을 확보했다고 보도됐다.</li>
+<li>지방재정·지역 행사 편의시설이 관련된다.</li>
+<li>전자정부·공공 AI 현안과 직접 연결성은 낮다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.2점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.ppss.kr/news/articleView.html?idxno=296022" target="_blank">정부, 여름 행락철 앞두고 하천·계곡 불법시설 정비 본격화</a>
+  <ul class="bullets">
+    <li>5월14일 행안부가 5월20일부터 6월30일까지 하천·계곡 불법시설 자진 신고·정비 계도기간을 운영한다고 보도됐다.</li>
+<li>지방행정·안전점검·현장 단속이 관련된다.</li>
+<li>AI정부실 현안보다는 일반 안전정책 성격이 강하다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>3.4점</span>
+    <span></span>
+    <span>2026-05-15</span>
+  </div>
+  <a class="title" href="https://www.mhns.co.kr/news/articleView.html?idxno=747520" target="_blank">양부남 의원,  행안부  특별교부세 26억 확보…"5·18 사적지 정비·주민 ...</a>
+  <ul class="bullets">
+    <li>5월15일 광주 지역 현안과 재난안전 강화를 위한 행안부 특별교부세 26억 원 확보가 보도됐다.</li>
+<li>지역 재난안전·사적지 정비 사업이 관련된다.</li>
+<li>공공 AI·클라우드·장애관리 직접성은 낮다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>2.8점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.polinews.co.kr/news/articleView.html?idxno=731237" target="_blank">[6·3 지방선거] 박희정, 14일 포항시장 후보 등록… "대통령의 해송어촌...</a>
+  <ul class="bullets">
+    <li>5월14일 포항시장 후보 공약에서 행안부 등이 포함된 원팀 협의체 구성이 언급됐다.</li>
+<li>지방선거·어촌 현안·관계부처 협의가 관련된다.</li>
+<li>선거 기사로 중앙 전자정부 업무 관련성은 매우 낮다.</li>
+
+  </ul>
+</div>
+</div>
+<div class="kw-group">
+  <h3>💻 공공정보화 <span>(5건)</span></h3>
+  
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.4점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://weekly.hankooki.com/news/articleView.html?idxno=7164158" target="_blank">경기도, 스타트업 해외 진출 돕는다…C4IR 코리아 멤버십 출범</a>
+  <ul class="bullets">
+    <li>5월14일 경기도가 C4IR 코리아 멤버십을 출범하고 AI·반도체·GovTech 등 스타트업 해외 진출을 지원한다고 보도됐다.</li>
+<li>GovTech·AI 스타트업·지방정부 혁신 생태계가 수혜 영역이다.</li>
+<li>중앙정부 공공 AI 정책과 지방 GovTech 육성 간 역할 정리가 필요하다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.3점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="http://www.weeklytoday.com/news/articleView.html?idxno=775667" target="_blank">[위클리오늘] 경기도, 4차산업혁명센터 멤버십 출범…초기기업 글로벌 ...</a>
+  <ul class="bullets">
+    <li>5월14일 경기도 4차산업혁명센터 멤버십 출범이 별도 매체에서 보도됐다.</li>
+<li>AI·반도체·GovTech 초기기업 지원이 관련된다.</li>
+<li>동일 날짜·동일 주제 중복 기사로 대표 1건만 WATCH 처리하고 본 건은 ARCHIVE로 둔다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>3.6점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.cnbizm.com/news/articleView.html?idxno=302937" target="_blank">현장 의견 반영, 미래형 교육환경 조성...용산구, 학생·학부모·교직원...</a>
+  <ul class="bullets">
+    <li>5월14일 용산구가 학교 환경개선과 교육 정보화사업을 추진한다고 보도됐다.</li>
+<li>교육 정보화·학교 시설 개선이 관련된다.</li>
+<li>공공정보화 키워드는 포함되나 행안부 AI정부 현안과 거리가 있다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-WATCH">🟡 WATCH</span>
+    <span>5.1점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="http://www.areyou.co.kr/news/articleView.html?idxno=93735" target="_blank">[아유경제_부동산] HUG, 부산서  정보화사업  간담회… "부산 IT업체와 상...</a>
+  <ul class="bullets">
+    <li>5월14일 HUG가 부산 IT업체와 공사 정보화사업 참여 간담회를 열었다고 보도됐다.</li>
+<li>이전 공공기관 정보화사업·지역 IT업체 참여가 관련된다.</li>
+<li>공공 정보화 발주에서 지역 생태계와 참여 확대 요구가 커질 수 있다.</li>
+
+  </ul>
+</div>
+<div class="article-card">
+  <div class="meta">
+    <span class="badge badge-ARCHIVE">⚪ ARCHIVE</span>
+    <span>4.2점</span>
+    <span></span>
+    <span>2026-05-14</span>
+  </div>
+  <a class="title" href="https://www.ekoreanews.co.kr/news/articleView.html?idxno=86037" target="_blank">HUG 최인호 사장 "지역사회 상생 위한 생태계 조성 앞장"</a>
+  <ul class="bullets">
+    <li>5월14일 HUG 정보화사업 참여 간담회가 다른 매체에서 보도됐다.</li>
+<li>부산 지역 IT업체와 공공기관 정보화 협력이 관련된다.</li>
+<li>동일 사안 중복 보도로 대표 기사만 WATCH 처리하고 본 건은 ARCHIVE로 둔다.</li>
+
+  </ul>
+</div>
+</div>
+</div>
+
+  <div class="footer">
+    Hermes Agent · 자동 생성 뉴스 브리핑<br>
+    Obsidian vault에 함께 저장됨
+  </div>
+
+</div>
+</body>
+</html>
